@@ -5,6 +5,7 @@
  */
 package com.nephtysorg.model.dao;
 
+import java.util.Date;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 import com.nephtysorg.model.pojo.UserGroup;
@@ -37,6 +38,7 @@ public class UserGroupDAOImpl implements UserGroupDAO {
     @Override
     public void addUserGroup(UserGroup userGroup) {
         Session session = this.sessionFactory.getCurrentSession();
+            userGroup.setMember_since(new Date());
             session.saveOrUpdate(userGroup);
     }
 
